@@ -173,6 +173,35 @@ Response:
 }
 ```
 
+#### Edit Invite by ID
+
+`PATCH` /api/v1/invites/{id}
+
+> Note: Guests can only be edited on Invites via the Guests API. See `Assign Guest to Invite` or `Unassign Guest to Invite`
+
+id: ID of invite
+
+```json
+{
+    "accepted": true,
+    "event_id": 2
+}
+```
+
+#### Delete Invite
+
+`DELETE` /api/v1/invites/{id}
+
+id: ID of guest
+
+Response:
+
+```json
+{
+    "success": true
+}
+```
+
 ### Guests
 
 ```json
