@@ -107,6 +107,8 @@ def edit_guests(jwt, id):
     if payload is None:
         abort(400)
     guest = Guest.query.get(id)
+    if guest is None:
+        abort(404)
     try:
         for key in payload.keys():
             setattr(guest, key, payload.get(key))
@@ -150,8 +152,10 @@ def create_guest_invites(jwt, id):
     payload = request.get_json()
     if payload is None:
         abort(400)
+    guest = Guest.query.get(id)
+    if guest is None:
+        abort(404)
     try:
-        guest = Guest.query.get(id)
         guest.invite_id = payload.get('invite_id')
         guest.update()
         response = {
@@ -180,8 +184,10 @@ def delete_guest_invites(jwt, id):
     Keyword arguments:
     id -- the id of the guest
     """
+    guest = Guest.query.get(id)
+    if not guest:
+        abort(404)
     try:
-        guest = Guest.query.get(id)
         guest.invite_id = None
         guest.update()
         response = {
