@@ -1,6 +1,6 @@
 import sys
 
-from flask import Blueprint, jsonify, request, abort
+from flask import current_app, Blueprint, jsonify, request, abort
 from flask_cors import cross_origin
 
 from auth import requires_auth
