@@ -4,6 +4,32 @@ This API serves as the bridge between bot and web, enabling database access
 
 The common objects are Events, Guests, and Invites.
 
+- [wedo API](#wedo-api)
+  - [Endpoints](#endpoints)
+    - [Responses](#responses)
+    - [Events](#events)
+      - [Get Events](#get-events)
+      - [Get Event by ID](#get-event-by-id)
+      - [Create Event](#create-event)
+    - [Invites](#invites)
+      - [Get Invites](#get-invites)
+      - [Get Invite by ID](#get-invite-by-id)
+      - [Create Invite](#create-invite)
+      - [Edit Invite by ID](#edit-invite-by-id)
+      - [Delete Invite](#delete-invite)
+    - [Guests](#guests)
+      - [Get Guests](#get-guests)
+      - [Get Guest by ID](#get-guest-by-id)
+      - [Create Guest](#create-guest)
+      - [Edit Guest by ID](#edit-guest-by-id)
+      - [Assign Guest to Invite](#assign-guest-to-invite)
+      - [Unassign Guest from Invite](#unassign-guest-from-invite)
+  - [Development Guide](#development-guide)
+    - [Setup](#setup)
+    - [Testing](#testing)
+    - [Models](#models)
+      - [Database Patterns](#database-patterns)
+
 ## Endpoints
 
 ### Responses
