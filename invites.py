@@ -53,17 +53,17 @@ def get_invite(jwt, id):
 
 @invites.route('/api/v1/invites', methods=['POST'])
 @cross_origin()
-# @requires_auth(permission='create:guests')
+# @requires_auth(permission='create:invites')
 @requires_auth()
 def create_invites(jwt):
     """
     Create invite
 
-    Event must already exist in the database
+    - Event must already exist in the database
+    - Use Guests API to add guests to invite
 
     POST /api/v1/invites
     {
-        "guests": [1,2,3],
         "accepted": false,
         "event_id": 1
     }
