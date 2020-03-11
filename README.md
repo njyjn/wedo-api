@@ -159,6 +159,7 @@ id: ID of invite
 
 ```json
 {
+    "accepted": false,
     "event_id": 1
 }
 ```
