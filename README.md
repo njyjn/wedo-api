@@ -228,6 +228,15 @@ id: ID of invite
 }
 ```
 
+Response:
+
+```json
+{
+    "success": true,
+    "invite": "{Invite}"
+}
+```
+
 #### Delete Invite
 
 `DELETE` /api/v1/invites/{id}
