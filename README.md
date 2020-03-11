@@ -11,6 +11,8 @@ The common objects are Events, Guests, and Invites.
       - [Get Events](#get-events)
       - [Get Event by ID](#get-event-by-id)
       - [Create Event](#create-event)
+      - [Edit Event by ID](#edit-event-by-id)
+      - [Delete Event](#delete-event)
     - [Invites](#invites)
       - [Get Invites](#get-invites)
       - [Get Invite by ID](#get-invite-by-id)
@@ -108,6 +110,44 @@ Response:
 {
     "success": true,
     "event": "{Event}"
+}
+```
+
+#### Edit Event by ID
+
+`PATCH` /api/v1/events/{id}
+
+id: ID of event
+
+```json
+  {
+      "name": "Wedding Dinner",
+      "address": "123 Main Blvd, Aurora, CO 80011",
+      "start_datetime": "2050-01-01T18:00:00-06:00",
+      "end_datetime": "2050-01-01T23:00:00-06:00",
+  }
+```
+
+Response:
+
+```json
+{
+    "success": true,
+    "event": "{Event}"
+}
+```
+
+#### Delete Event
+
+`DELETE` /api/v1/events/{id}
+
+id: ID of event
+
+Response:
+
+```json
+{
+    "success": true
 }
 ```
 

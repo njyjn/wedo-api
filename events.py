@@ -88,3 +88,80 @@ def create_events(jwt):
     finally:
         close()
     return jsonify(response)
+
+
+@events.route('/api/v1/events/<int:id>', methods=['PATCH'])
+@cross_origin()
+# @requires_auth(permission='create:events')
+@requires_auth()
+def edit_events(jwt, id):
+    """
+    Edit event
+
+    PATCH /api/v1/events/<id>
+
+    {
+        "name": "Wedding Dinner",
+        "address": "123 Main Blvd, Aurora, CO 80011",
+        "start_datetime": "2050-01-01T18:00:00-06:00",
+        "end_datetime": "2050-01-01T23:00:00-06:00",
+    }
+
+    Keyword arguments:
+    id -- the id of the event
+    """
+    payload = request.get_json()
+    if payload is None:
+        abort(400)
+    event = Event.query.get(id)
+    if event is None:
+        abort(404)
+    try:
+        for key in payload.keys():
+            setattr(event, key, payload.get(key))
+    except Exception:
+        current_app.logger.info(sys.exc_info())
+        abort(400)
+    try:
+        event.update()
+        response = {
+            'success': True,
+            'event': event.to_dict()
+        }
+    except Exception:
+        rollback()
+        current_app.logger.info(sys.exc_info())
+        abort(422)
+    finally:
+        close()
+    return jsonify(response)
+
+
+@events.route('/api/v1/events/<int:id>', methods=['DELETE'])
+@cross_origin()
+# @requires_auth(permission='create:events')
+@requires_auth()
+def delete_events(jwt, id):
+    """
+    Delete event
+
+    DELETE /api/v1/events/<id>
+
+    Keyword arguments:
+    id -- the id of the event
+    """
+    event = Event.query.get(id)
+    if event is None:
+        abort(404)
+    try:
+        event.delete()
+        response = {
+            'success': True
+        }
+    except Exception:
+        rollback()
+        current_app.logger.info(sys.exc_info())
+        abort(422)
+    finally:
+        close()
+    return jsonify(response)
