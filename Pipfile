@@ -35,8 +35,9 @@ Mako = "==1.1.2"
 MarkupSafe = "==1.1.1"
 SQLAlchemy = "==1.3.3"
 Werkzeug = "==0.15.3"
-python-jose = "*"
 flask-migrate = "*"
+pycryptodome = "*"
+python-jose = "*"
 
 [requires]
 python_version = "3.7"
