@@ -89,6 +89,8 @@ If running tests as a Udacity reviewer, run the postman collection outright with
 
 ## Endpoints
 
+The API is hosted at <https://justinandalethea-api.herokuapp.com/>
+
 ### Roles
 
 The following roles are available in the app
