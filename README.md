@@ -71,11 +71,13 @@ If you are testing, use a separate database with the instructions provided in th
 
 ### Testing
 
-A Postman collection `WedoAPI.postman_collection.json` has been provided for testing. Before running the collection, run the script `pretest.sh` to prepare the database.
+A Postman collection `WedoAPI.postman_collection.json` has been provided for testing. If running locally, before running the collection, run the script `pretest.sh` to prepare the database, and edit the collection variable `HOST` to be `http://localhost:5000`
 
 ```shell
 source ./pretest.sh
 ```
+
+If running tests as a Udacity reviewer, run the postman collection outright without replacing any variables. The tokens are valid at commit time.
 
 ### Models
 

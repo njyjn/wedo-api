@@ -1,0 +1,1508 @@
+{
+	"info": {
+		"_postman_id": "5b2558df-df1e-49a0-8310-e22101ee1f77",
+		"name": "WedoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "postEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff8c613e-2100-49d6-90b3-be165e71e1eb",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Wedding Lunch\",\n        \"address\": \"123 Main St, Aurora, CO 80011\",\n        \"start_datetime\": \"2050-01-01T12:00:00-06:00\",\n        \"end_datetime\": \"2050-01-01T14:00:00-06:00\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/events",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "358d8630-1168-456e-b34b-64c2b4fca327",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1185bd12-4a22-4d37-8dfd-13ea7eb37c2e",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0be549b-e245-432b-8ecb-1dc030a7f89c",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"start_datetime\": \"2050-01-01T18:00:00-06:00\",\n    \"end_datetime\": \"2050-01-01T23:00:00-06:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4486e629-4d63-41f7-a2b2-4f34079078f4",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Vincent Ng\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd9ef969-4813-4a17-a808-0de4f69c2874",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5812e08a-cf16-49f9-9a19-0b5ac8853c6d",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f33c003-d7ca-4d26-a2c3-a194e9b16d37",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Cindy Yiu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2e219ff4-c3b0-4f8c-8153-5f9a55070c7a",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accepted\": false,\n    \"event_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c09e8655-2853-48d2-bfc5-188fb3725fe5",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInvite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b495a106-f6af-45e2-86fe-33266826e4df",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "694b4494-af67-41ed-9c72-6a0d5d555ef3",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"accepted\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postGuestsInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7896ea7-e5d7-41ac-aa59-3884962e5aab",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"invite_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlEwVkJOalZDTmpoQ1EwVTNSalU0UVVZNU0wRXhSa0pHTURaQ01rVkNRa1ZDTnpSQ01VSkZRUSJ9.eyJpc3MiOiJodHRwczovL2p1c3RpbmFuZGFsZXRoZWEuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlNmFjMWFiZDEwMTk1MGM5M2E5ZTFhNCIsImF1ZCI6Imh0dHBzOi8vd3d3Lmp1c3RpbmFuZGFsZXRoZWEuY29tL2FwaS92MSIsImlhdCI6MTU4NDA1NjM5MCwiZXhwIjoxNTg0MTQyNzkwLCJhenAiOiJCaXhvMUpZNzJhRzdaTURJUVJFUnVCakhFRE8wZXdWMCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiY3JlYXRlOmV2ZW50cyIsImNyZWF0ZTpndWVzdHMiLCJjcmVhdGU6aW52aXRlcyIsInJlYWQ6ZXZlbnRzIiwicmVhZDpndWVzdHMiLCJyZWFkOmludml0ZXMiXX0.LWRmlVpIgge2G-LQbx2hU0Ip6EXgWyAYHfulFCKD8cvI1Bvvc2gr69ds2ZFS5-e0lcb4Q1WCpxZ0HW41ozmY4Y62LC9yrxWKZNYjCzLSOqSI7ViuHewHCz9UENWQL5EP6iYz2oRM23BuqGT3FbTKH3W0ME987r9WZbjW1IZRL3vzPQyTMVKH14TBYd_3-iS9VDOTHuAwfE_X8M-CAcT9hGLV6GmyunfXdZznVupAsXdqzAlLnrV96epBBP6s3ZRhRdk3O2DXvjV2Lbam51sbtY9a3fNNYOOiWO5PAe1i8sxIy2_5pUs8LIIdWqwlCFBeYRkPNw6bOgcujH4tZyBW9g",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "01f9110b-ec49-41c1-a01b-d6323e720c1b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a853bd2f-eb13-48b2-bbdb-c4b562cda665",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "guest",
+			"item": [
+				{
+					"name": "postEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff8c613e-2100-49d6-90b3-be165e71e1eb",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Wedding Lunch\",\n        \"address\": \"123 Main St, Aurora, CO 80011\",\n        \"start_datetime\": \"2050-01-01T12:00:00-06:00\",\n        \"end_datetime\": \"2050-01-01T14:00:00-06:00\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/events",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "358d8630-1168-456e-b34b-64c2b4fca327",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1185bd12-4a22-4d37-8dfd-13ea7eb37c2e",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0be549b-e245-432b-8ecb-1dc030a7f89c",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"start_datetime\": \"2050-01-01T18:00:00-06:00\",\n    \"end_datetime\": \"2050-01-01T23:00:00-06:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4486e629-4d63-41f7-a2b2-4f34079078f4",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Vincent Ng\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd9ef969-4813-4a17-a808-0de4f69c2874",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5812e08a-cf16-49f9-9a19-0b5ac8853c6d",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f33c003-d7ca-4d26-a2c3-a194e9b16d37",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Cindy Yiu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2e219ff4-c3b0-4f8c-8153-5f9a55070c7a",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accepted\": false,\n    \"event_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c09e8655-2853-48d2-bfc5-188fb3725fe5",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInvite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b495a106-f6af-45e2-86fe-33266826e4df",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "694b4494-af67-41ed-9c72-6a0d5d555ef3",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"accepted\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postGuestsInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7896ea7-e5d7-41ac-aa59-3884962e5aab",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"invite_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGuestInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "befcb7a9-8cdb-42a1-97b7-309de75bf478",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ec3b3e3-43b8-4f05-95c4-eacd80fc5612",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32b7df55-b4b1-4c55-835e-a3eb630738df",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ccb508d-27b0-4852-8173-440555b39420",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlEwVkJOalZDTmpoQ1EwVTNSalU0UVVZNU0wRXhSa0pHTURaQ01rVkNRa1ZDTnpSQ01VSkZRUSJ9.eyJpc3MiOiJodHRwczovL2p1c3RpbmFuZGFsZXRoZWEuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlNmFjMTRhODUyYTg2MGM3Njg5MWY2MCIsImF1ZCI6Imh0dHBzOi8vd3d3Lmp1c3RpbmFuZGFsZXRoZWEuY29tL2FwaS92MSIsImlhdCI6MTU4NDA2MjYwNSwiZXhwIjoxNTg0MTQ5MDA1LCJhenAiOiJCaXhvMUpZNzJhRzdaTURJUVJFUnVCakhFRE8wZXdWMCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsicmVhZDpldmVudHMiLCJyZWFkOmd1ZXN0cyIsInJlYWQ6aW52aXRlcyJdfQ.p53Xvj911_0ougRbS9twhSosygLDcUyNyWgiA9r_Q1fQBxjRZNptGNKr5lunOKLz4-GPyxbf-N86uWarduj8P0eOjvZ7xeGV46lpvrS-hffTNxJJ8fkpENF_TvdhOwt8_-NyKouB4m2lNAsdXi6HdjtpsC_-H_lDzyrDQQvrjRZXRQapKff-PuHXD4QLzvzHDaTcwUMWB_9LhxWjD_J--WSGkkzA_aQU1OV2ujqG7dKVjtRkWabpim0A4cMIQLcCfWDplbsPgv_oLT2dS7WGAvvHGAsnHzoEZcE6I0_UIVjBGt2GPsh0kXRGRey6rhOqYPZEWvAjIR7roFUGmYIUrw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8e6e3c0a-81bd-4b1b-8a6c-61c1c38c94e8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d006e25b-52bf-4444-bc95-36d8a2910709",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "admin-delete",
+			"item": [
+				{
+					"name": "deleteGuestInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "befcb7a9-8cdb-42a1-97b7-309de75bf478",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1/invites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteInvites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ec3b3e3-43b8-4f05-95c4-eacd80fc5612",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/invites/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGuests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32b7df55-b4b1-4c55-835e-a3eb630738df",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/guests/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"guests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ccb508d-27b0-4852-8173-440555b39420",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/events/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlEwVkJOalZDTmpoQ1EwVTNSalU0UVVZNU0wRXhSa0pHTURaQ01rVkNRa1ZDTnpSQ01VSkZRUSJ9.eyJpc3MiOiJodHRwczovL2p1c3RpbmFuZGFsZXRoZWEuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlNmFjMWFiZDEwMTk1MGM5M2E5ZTFhNCIsImF1ZCI6Imh0dHBzOi8vd3d3Lmp1c3RpbmFuZGFsZXRoZWEuY29tL2FwaS92MSIsImlhdCI6MTU4NDA1NjM5MCwiZXhwIjoxNTg0MTQyNzkwLCJhenAiOiJCaXhvMUpZNzJhRzdaTURJUVJFUnVCakhFRE8wZXdWMCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiY3JlYXRlOmV2ZW50cyIsImNyZWF0ZTpndWVzdHMiLCJjcmVhdGU6aW52aXRlcyIsInJlYWQ6ZXZlbnRzIiwicmVhZDpndWVzdHMiLCJyZWFkOmludml0ZXMiXX0.LWRmlVpIgge2G-LQbx2hU0Ip6EXgWyAYHfulFCKD8cvI1Bvvc2gr69ds2ZFS5-e0lcb4Q1WCpxZ0HW41ozmY4Y62LC9yrxWKZNYjCzLSOqSI7ViuHewHCz9UENWQL5EP6iYz2oRM23BuqGT3FbTKH3W0ME987r9WZbjW1IZRL3vzPQyTMVKH14TBYd_3-iS9VDOTHuAwfE_X8M-CAcT9hGLV6GmyunfXdZznVupAsXdqzAlLnrV96epBBP6s3ZRhRdk3O2DXvjV2Lbam51sbtY9a3fNNYOOiWO5PAe1i8sxIy2_5pUs8LIIdWqwlCFBeYRkPNw6bOgcujH4tZyBW9g",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cb06bb7d-bbb7-4f94-b6f5-dab9cdf72840",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecca7021-503e-4d70-916d-03e1c8593d9c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlEwVkJOalZDTmpoQ1EwVTNSalU0UVVZNU0wRXhSa0pHTURaQ01rVkNRa1ZDTnpSQ01VSkZRUSJ9.eyJpc3MiOiJodHRwczovL2p1c3RpbmFuZGFsZXRoZWEuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlNmFjMWFiZDEwMTk1MGM5M2E5ZTFhNCIsImF1ZCI6Imh0dHBzOi8vd3d3Lmp1c3RpbmFuZGFsZXRoZWEuY29tL2FwaS92MSIsImlhdCI6MTU4NDA1NjIyMiwiZXhwIjoxNTg0MDYzNDIyLCJhenAiOiJCaXhvMUpZNzJhRzdaTURJUVJFUnVCakhFRE8wZXdWMCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiY3JlYXRlOmV2ZW50cyIsImNyZWF0ZTpndWVzdHMiLCJjcmVhdGU6aW52aXRlcyIsInJlYWQ6ZXZlbnRzIiwicmVhZDpndWVzdHMiLCJyZWFkOmludml0ZXMiXX0.ILaUJcLeDDdLG11HL_t3TUrkZZN_hGrglRZmobysxrwEC4GVahmIngzdp5LVncdlgu6pSvd6D___dFdQYLu62DWRU3hlppdIdFS_uxC6YC5BnF_z7gxvsWrtPnZbAmpGj0fYLF-Vx_1IcDTKHnliqUCjwjPyxF2Nhbm-lEo15vjSYZ6E4znE7USvaOIyYZTQSCVlbv2-NmmYTmW6NeQXI1Iq52OGYgcteiwO1qB2DcGeijv-0h1321EFtzCo8Ruq0QHvQTGXVx25Tnv8Eoh3JolMMSbLS9ZHHIaaWpjSMKzCic2jEhobrvELMQVpQ1u3x2ZgFNhOC9M0IEBeBFQ_9w",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b7961efd-a117-4265-9915-e5cf2a6c1dd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "555ba1ce-90fe-4d37-99b0-3d6f3479640f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "10102f62-a7d9-4c94-ab2f-a57fe530a75e",
+			"key": "HOST",
+			"value": "https://justinandalethea-api.herokuapp.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
