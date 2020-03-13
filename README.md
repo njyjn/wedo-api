@@ -1,10 +1,13 @@
 # wedo API
 
-This API serves as the bridge between bot and web, enabling database access
-
-The common objects are Events, Guests, and Invites.
+This API is part of a larger project called Wedo, a guest registration and event management interface for my wedding. The API interfaces to the Events, Guests, and Invites database for the occasion, serving as the bridge between the other bot and web interfaces. As this is an API module, there is no UI.
 
 - [wedo API](#wedo-api)
+  - [Development Guide](#development-guide)
+    - [Setup](#setup)
+    - [Testing](#testing)
+    - [Models](#models)
+      - [Database Patterns](#database-patterns)
   - [Endpoints](#endpoints)
     - [Responses](#responses)
     - [Events](#events)
@@ -26,11 +29,60 @@ The common objects are Events, Guests, and Invites.
       - [Edit Guest by ID](#edit-guest-by-id)
       - [Assign Guest to Invite](#assign-guest-to-invite)
       - [Unassign Guest from Invite](#unassign-guest-from-invite)
-  - [Development Guide](#development-guide)
-    - [Setup](#setup)
-    - [Testing](#testing)
-    - [Models](#models)
-      - [Database Patterns](#database-patterns)
+
+## Development Guide
+
+### Setup
+
+This project runs using a Pipenv virtual environment. A `requirements.txt` file is also provided in case you want to run the project on other virtual environments.
+
+```shell
+pip install pipenv
+```
+
+You may use the provided `init.sh` script to export the necessary environment variables. Before running the project, edit the file with your config options.
+
+```shell
+chmod +x ./init.sh
+source ./init.sh
+```
+
+Run the project within a Pipenv shell or a virtual environment of your choosing.
+
+```shell
+pipenv shell
+```
+
+For the time being, this API is secured by Auth0. Visit [Auth0](https://www.auth0.com) for more information on how to set up your account.
+
+At first run, create the database like so.
+
+```shell
+psql {user}
+CREATE DATABASE api;
+```
+
+The app will automatically create the relations listed in `models.py` if not already created.
+
+Run the app using `pipenv run flask run`
+
+If you are testing, use a separate database with the instructions provided in the next section.
+
+### Testing
+
+A Postman collection `WedoAPI.postman_collection.json` has been provided for testing. Before running the collection, run the script `pretest.sh` to prepare the database.
+
+```shell
+source ./pretest.sh
+```
+
+### Models
+
+#### Database Patterns
+
+- Guests can be invited to an Event (many to one)
+- Guests must be invited through an Invite (many to one)
+- An Event can have many Invites (one to many)
 
 ## Endpoints
 
@@ -48,8 +100,6 @@ Code | Description | Explanation
 
 ### Events
 
-Represents a timeboxed, attendable event
-
 ```json
 {
     "id": 1,
@@ -66,6 +116,7 @@ Represents a timeboxed, attendable event
 #### Get Events
 
 `GET` /api/v1/events
+Roles: read:events
 
 ```json
 {
@@ -79,6 +130,7 @@ Represents a timeboxed, attendable event
 #### Get Event by ID
 
 `GET` /api/v1/events/{id}
+Roles: read:events
 
 id: ID of event
 
@@ -92,6 +144,7 @@ id: ID of event
 #### Create Event
 
 `POST` /api/v1/events
+Roles: create:events
 
 > Note: Invites can only be added to Events via the Invites API
 
@@ -116,6 +169,7 @@ Response:
 #### Edit Event by ID
 
 `PATCH` /api/v1/events/{id}
+Roles: create:events
 
 id: ID of event
 
@@ -140,6 +194,7 @@ Response:
 #### Delete Event
 
 `DELETE` /api/v1/events/{id}
+Roles: create:events
 
 id: ID of event
 
@@ -168,6 +223,7 @@ Response:
 #### Get Invites
 
 `GET` /api/v1/invites
+Roles: read:invites
 
 ```json
 {
@@ -181,6 +237,7 @@ Response:
 #### Get Invite by ID
 
 `GET` /api/v1/invites/{id}
+Roles: read:invites
 
 id: ID of invite
 
@@ -194,6 +251,7 @@ id: ID of invite
 #### Create Invite
 
 `POST` /api/v1/invites
+Roles: create:invites
 
 > Note: Guests can only be added to Invites via the Guests API
 
@@ -216,6 +274,7 @@ Response:
 #### Edit Invite by ID
 
 `PATCH` /api/v1/invites/{id}
+Roles: create:invites
 
 > Note: Guests can only be edited on Invites via the Guests API. See `Assign Guest to Invite` or `Unassign Guest to Invite`
 
@@ -240,6 +299,7 @@ Response:
 #### Delete Invite
 
 `DELETE` /api/v1/invites/{id}
+Roles: create:invites
 
 id: ID of guest
 
@@ -265,6 +325,7 @@ Response:
 #### Get Guests
 
 `GET` /api/v1/guests
+Roles: read:guests
 
 ```json
 {
@@ -278,6 +339,7 @@ Response:
 #### Get Guest by ID
 
 `GET` /api/v1/guests/{id}
+Roles: read:guests
 
 id: ID of guest
 
@@ -291,6 +353,7 @@ id: ID of guest
 #### Create Guest
 
 `POST` /api/v1/guests
+Roles: create:guests
 
 > Note: Invites can only be added to Guests via another method in the Guests API. See `Assign Guest to Invite`
 
@@ -313,6 +376,7 @@ Response:
 #### Edit Guest by ID
 
 `PATCH` /api/v1/guests/{id}
+Roles: create:guests
 
 > Note: Invites can only be edited on Guests via another method in the Guests API. See `Assign Guest to Invite` or `Unassign Guest to Invite`
 
@@ -337,6 +401,7 @@ Response:
 #### Assign Guest to Invite
 
 `POST` /api/v1/guests/{id}/invites
+Roles: create:guests
 
 id: ID of guest
 
@@ -358,6 +423,7 @@ Response:
 #### Unassign Guest from Invite
 
 `DELETE` /api/v1/guests/{id}/invites
+Roles: create:guests
 
 id: ID of guest
 
@@ -369,47 +435,3 @@ Response:
     "guest": "{Guest}"
 }
 ```
-
-## Development Guide
-
-### Setup
-
-This project runs on Pipenv
-
-```shell
-pip install pipenv
-```
-
-For the time being, this API is secured by Auth0. Visit [Auth0](https://www.auth0.com) for more information on how to set up your account.
-
-Ensure that you have a `.env` file with the following structure
-
-```env
-AUTH0_DOMAIN={auth0_domain}.auth0.com
-API_AUDIENCE={auth0_audience}
-FLASK_APP=api.py
-SQLALCHEMY_DATABASE_URI=postgres://{username}@{host}:{port}/api
-```
-
-At first run, please create the database like so
-
-```shell
-psql {user}
-CREATE DATABASE api;
-```
-
-The app will automatically create the relations listed in `models.py` if not already created.
-
-Run the app using `pipenv run flask run`
-
-### Testing
-
-A Postman collection has been provided for testing. After importing to Postman, remember to edit the Authorization token of the collection to use the JWT token generated by Auth0.
-
-### Models
-
-#### Database Patterns
-
-- Guests can be invited to an Event (many to one)
-- Guests must be invited through an Invite (many to one)
-- An Event can have many Invites (one to many)
