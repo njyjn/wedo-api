@@ -1,5 +1,7 @@
-import json
 from functools import wraps
+import json
+import secrets
+import string
 from urllib.request import urlopen
 
 from flask import request, _request_ctx_stack
@@ -111,4 +113,4 @@ def requires_auth(permission=''):
 def generate_random_string_with_digits(length=6):
     """Generate a random string of letters and digits"""
     letters_and_digits = string.ascii_uppercase + string.digits
-    return ''.join(random.choice(letters_and_digits) for i in range(length))
+    return ''.join(secrets.choice(letters_and_digits) for i in range(length))
