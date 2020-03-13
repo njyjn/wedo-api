@@ -9,6 +9,7 @@ This API is part of a larger project called Wedo, a guest registration and event
     - [Models](#models)
       - [Database Patterns](#database-patterns)
   - [Endpoints](#endpoints)
+    - [Roles](#roles)
     - [Responses](#responses)
     - [Events](#events)
       - [Get Events](#get-events)
@@ -85,6 +86,19 @@ source ./pretest.sh
 - An Event can have many Invites (one to many)
 
 ## Endpoints
+
+### Roles
+
+The following roles are available in the app
+
+- read:events
+- read:guests
+- read:invites
+- create:events
+- create:guests
+- create:invites
+
+The *admin* user has access to all roles, whereas the *guest* user has access to only the `read` roles.
 
 ### Responses
 
