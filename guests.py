@@ -11,8 +11,8 @@ guests = Blueprint('guests', __name__)
 
 @guests.route('/api/v1/guests', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:guests')
-@requires_auth()
+@requires_auth(permission='read:guests')
+# @requires_auth()
 def get_guests(jwt):
     """
     Get guests
@@ -29,8 +29,8 @@ def get_guests(jwt):
 
 @guests.route('/api/v1/guests/<int:id>', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:guests')
-@requires_auth()
+@requires_auth(permission='read:guests')
+# @requires_auth()
 def get_guest(jwt, id):
     """
     Get guest by id
@@ -52,8 +52,8 @@ def get_guest(jwt, id):
 
 @guests.route('/api/v1/guests', methods=['POST'])
 @cross_origin()
-# @requires_auth(permission='create:guests')
-@requires_auth()
+@requires_auth(permission='create:guests')
+# @requires_auth()
 def create_guests(jwt):
     """Create guest
 
@@ -89,8 +89,8 @@ def create_guests(jwt):
 
 @guests.route('/api/v1/guests/<int:id>', methods=['PATCH'])
 @cross_origin()
-# @requires_auth(permission='create:guests')
-@requires_auth()
+@requires_auth(permission='create:guests')
+# @requires_auth()
 def edit_guests(jwt, id):
     """
     Edit guest
@@ -130,10 +130,40 @@ def edit_guests(jwt, id):
     return jsonify(response)
 
 
+@guests.route('/api/v1/guests/<int:id>', methods=['DELETE'])
+@cross_origin()
+@requires_auth(permission='create:guests')
+# @requires_auth()
+def delete_guests(jwt, id):
+    """
+    Delete guest
+
+    DELETE /api/v1/guests/<id>
+
+    Keyword arguments:
+    id -- the id of the guest
+    """
+    guest = Guest.query.get(id)
+    if guest is None:
+        abort(404)
+    try:
+        guest.delete()
+        response = {
+            'success': True,
+        }
+    except Exception:
+        rollback()
+        current_app.logger.info(sys.exc_info())
+        abort(422)
+    finally:
+        close()
+    return jsonify(response)
+
+
 @guests.route('/api/v1/guests/<int:id>/invites', methods=['POST', 'PUT'])
 @cross_origin()
-# @requires_auth(permission='create:guests')
-@requires_auth()
+@requires_auth(permission='create:guests')
+# @requires_auth()
 def create_guest_invites(jwt, id):
     """
     Link guest to invite
@@ -173,8 +203,8 @@ def create_guest_invites(jwt, id):
 
 @guests.route('/api/v1/guests/<int:id>/invites', methods=['DELETE'])
 @cross_origin()
-# @requires_auth(permission='create:guests')
-@requires_auth()
+@requires_auth(permission='create:guests')
+# @requires_auth()
 def delete_guest_invites(jwt, id):
     """
     Unlink guest from invite

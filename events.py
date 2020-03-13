@@ -11,8 +11,8 @@ events = Blueprint('events', __name__)
 
 @events.route('/api/v1/events', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:events')
-@requires_auth()
+@requires_auth(permission='read:events')
+# @requires_auth()
 def get_events(jwt):
     """Get events
 
@@ -28,8 +28,8 @@ def get_events(jwt):
 
 @events.route('/api/v1/events/<int:id>', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:events')
-@requires_auth()
+@requires_auth(permission='read:events')
+# @requires_auth()
 def get_event(jwt, id):
     """Get event by ID
 
@@ -50,8 +50,8 @@ def get_event(jwt, id):
 
 @events.route('/api/v1/events', methods=['POST'])
 @cross_origin()
-# @requires_auth(permission='create:events')
-@requires_auth()
+@requires_auth(permission='create:events')
+# @requires_auth()
 def create_events(jwt):
     """Create event
 
@@ -92,8 +92,8 @@ def create_events(jwt):
 
 @events.route('/api/v1/events/<int:id>', methods=['PATCH'])
 @cross_origin()
-# @requires_auth(permission='create:events')
-@requires_auth()
+@requires_auth(permission='create:events')
+# @requires_auth()
 def edit_events(jwt, id):
     """
     Edit event
@@ -139,8 +139,8 @@ def edit_events(jwt, id):
 
 @events.route('/api/v1/events/<int:id>', methods=['DELETE'])
 @cross_origin()
-# @requires_auth(permission='create:events')
-@requires_auth()
+@requires_auth(permission='create:events')
+# @requires_auth()
 def delete_events(jwt, id):
     """
     Delete event

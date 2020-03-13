@@ -12,8 +12,8 @@ invites = Blueprint('invites', __name__)
 
 @invites.route('/api/v1/invites', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:invites')
-@requires_auth()
+@requires_auth(permission='read:invites')
+# @requires_auth()
 def get_invites(jwt):
     """
     Get invites
@@ -30,8 +30,8 @@ def get_invites(jwt):
 
 @invites.route('/api/v1/invites/<int:id>', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:invites')
-@requires_auth()
+@requires_auth(permission='read:invites')
+# @requires_auth()
 def get_invite(jwt, id):
     """
     Get invite by id
@@ -53,8 +53,8 @@ def get_invite(jwt, id):
 
 @invites.route('/api/v1/invites', methods=['POST'])
 @cross_origin()
-# @requires_auth(permission='create:invites')
-@requires_auth()
+@requires_auth(permission='create:invites')
+# @requires_auth()
 def create_invites(jwt):
     """
     Create invite
@@ -94,8 +94,8 @@ def create_invites(jwt):
 
 @invites.route('/api/v1/invites/<int:id>', methods=['PATCH'])
 @cross_origin()
-# @requires_auth(permission='create:invites')
-@requires_auth()
+@requires_auth(permission='create:invites')
+# @requires_auth()
 def edit_invites(jwt, id):
     """
     Edit invite
@@ -145,8 +145,8 @@ def edit_invites(jwt, id):
 
 @invites.route('/api/v1/invites/<int:id>', methods=['DELETE'])
 @cross_origin()
-# @requires_auth(permission='create:invites')
-@requires_auth()
+@requires_auth(permission='create:invites')
+# @requires_auth()
 def delete_invites(jwt, id):
     """
     Delete invite
@@ -175,8 +175,8 @@ def delete_invites(jwt, id):
 
 @invites.route('/api/v1/invites/verify', methods=['GET'])
 @cross_origin()
-# @requires_auth(permission='read:invites')
-@requires_auth()
+@requires_auth(permission='read:invites')
+# @requires_auth()
 def verify_invites(jwt):
     """
     Verify invite
