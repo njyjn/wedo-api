@@ -92,7 +92,8 @@ class Invite(db.Model):
             id=self.id,
             guests=to_list_of_dicts(self.guests),
             accepted=self.accepted,
-            event_id=self.event_id
+            event_id=self.event_id,
+            invite_code=self.invite_code
         )
 
     def generate_invite_code(self):
