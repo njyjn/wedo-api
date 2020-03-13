@@ -97,7 +97,14 @@ class Invite(db.Model):
         )
 
     def generate_invite_code(self):
-        self.invite_code = generate_random_string_with_digits(6)
+        unique = False
+        while not unique:
+            generated_code = generate_random_string_with_digits(6)
+            if not self.query.filter(
+                self.invite_code == generated_code
+            ).one_or_none():
+                unique = True
+                self.invite_code = generated_code
         return self.invite_code
 
     def verify_invite_code(self, plaintext):
