@@ -38,6 +38,8 @@ Werkzeug = "==0.15.3"
 flask-migrate = "*"
 pycryptodome = "*"
 python-jose = "*"
+gunicorn = "*"
+flask-script = "*"
 
 [requires]
 python_version = "3.7"
