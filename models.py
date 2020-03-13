@@ -5,13 +5,13 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 
 from auth import generate_random_string_with_digits
-from config import SQLALCHEMY_DATABASE_URI
+from config import DATABASE_URL
 
 db = SQLAlchemy()
 
 
 def setup_db(app):
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    app.config['DATABASE_URL'] = DATABASE_URL
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
